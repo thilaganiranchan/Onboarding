@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding Wizard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container-sm container-md container-lg container-xl container-xxl" >
+        <div class="container" class="text-primary " >
+            <div class="row" style=" height:100vh; padding-left: 10%;"  >
+              <div class="col" style=" overflow-y: scroll;  height:100% ">
+                <h1> Lets add your first product</h1> <br>
+                <h1> Basic Details</h1><br>
+
+                <label for="">Product name</label><br>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control text-primary" placeholder="eg - anatomy book" id="inputbox" onkeyup="update()"><br>
+                </div>
+                
+
+                <label for="">Product Description</label><br>
+                <textarea class="form-control text-primary"  placeholder="Input text" id="inputbox1" onkeyup="change()" style="width: 84%;"></textarea><br><br>
+              
+
+                <label>Add Images(s)</label><br><br>
+                <img src="image.jpg" class="img-thumbnail" alt="..." id="imgUpload" style="width: 30%; height: 15%;"><br><br>
+                <input type="file" accept="image/jpeg,image/png,image/jpg" id="input-file" class="text-primary"><br> <br>
+
+                <input type="checkbox" name="" id="">
+                <label for=""> this product has an SKU code</label> <br>
+                <div class="form-floating">
+                        
+                  <input type="text" class="form-control" id="floatingInputGrid" placeholder="eg - PROD0001" style="width: 50%;">
+                  
+                </div><br>
+                
+
+                <input type="checkbox" name="" id="">
+                <label for="">this product has an HSN/SAC code</label><br><br><br><br>
+                <p style="width: 100%;text-decoration: underline; ">___________________________________________________________</p>
+                <h1>Pricing Details</h1><br>
+
+                <div class="container">
+
+                  <div class="row g-2">
+                   
+                    <div class="col-md">
+                      <label >List Price</label>
+                      <div class="form-floating">
+                       
+                        <input type="number" class="form-control"  id="realPrice" onkeyup="prise()" placeholder="eg-100">
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <label >Discount percentage</label>
+                      <div class="form-floating">
+                        
+                        <input type="number" class="form-control" id="disc" placeholder="eg-40" oninput="cal()" >
+                        
+                      </div>
+                    </div>
+
+                  </div><br>
+
+                  <div class="row g-2">
+                    <div class="col-md">
+                      <label >Net price</label>
+                      <div class="form-floating">
+                        
+                        <input type="number" class="form-control"    placeholder="eg-80" >
+                        
+                      </div>
+                    </div>
+                    
+                    <div class="col-md">
+                      <label >GST Rate</label>
+                      <div class="form-floating">
+                       
+                        <input type="number" class="form-control" id="gst" placeholder="eg-20">
+                      </div>
+                    </div>
+                  </div><br>
+
+                  <div class="row g-2">
+                    <div class="col-md">
+                      <label >Shipping charges (if any)</label>
+                      <div class="form-floating">
+                        
+                        <input type="number" class="form-control" id="floatingInputGrid" placeholder="eg-40" >
+                        
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <label >Stock level</label>
+                      <div class="form-floating">
+                       
+                        <input type="number" class="form-control" id="floatingInputGrid" placeholder="eg-110">
+                      </div>
+                    </div>
+                  </div><br>
+
+                </div>
+
+                <div class="d-grid gap-2 d-md-block ">
+                  <a href="page2.html"><button class="btn btn-primary " type="button">Back</button></a>
+                  
+                  <button class="btn btn-primary " type="button">Next</button>
+                </div>
+
+
+              </div>
+
+
+              <div class="col " style="padding-left: 20%;">
+                <img src="image.jpg" class="img-fluid" alt="..." id="pic" style="width: 60%; height: 30%; ">
+                <br><br>
+                <h1 id="h1"> Product name</h1><br>
+                <p id="result" style="width: 80%; height: 35%;border: 1px solid blue; "></p>
+                <div class="d-flex align-items-center">
+
+                  <p  class="text-decoration-line-through " id="price" ></p>  
+                  <p id="discount">&nbsp;&nbsp;&nbsp;</p>
+                </div>
+                
+              </div>
+              
+            </div>
+          
+          </div>
+    </div>
+
+    <script>             
+        
+        var inputbox=document.getElementById("inputbox");
+        var h1=document.getElementById("h1");
+        var inputbox1=document.getElementById("inputbox1");
+        var result=document.getElementById("result");
+
+        let pic=document.getElementById("pic");
+        let imgUpload=document.getElementById('imgUpload');
+        let inputFile=document.getElementById("input-file");
+        
+        var realPrice=(document.getElementById("realPrice"));
+        var price=document.getElementById("price");
+        var disc=document.getElementById("disc");
+        var discount=document.getElementById("discount");
+
+        function update()
+        {
+                h1.textContent=inputbox.value;
+               
+        }
+
+        function change()
+        {
+          result.textContent=inputbox1.value;
+          
+        }
+        
+        inputFile.onchange=function(){
+          pic.src=URL.createObjectURL(inputFile.files[0]);
+          imgUpload.src=URL.createObjectURL(inputFile.files[0]);
+        }
+
+        function prise()
+        {
+          price.textContent='Rs.' +realPrice.value;
+          discount.textContent='Rs.'+realPrice.value;
+
+        }
+        function cal()
+        {
+           var p=realPrice.value;
+           console.log(p)
+           var d=disc.value;
+           console.log(d)
+           var discountPrice=(p - (p*(d/100))).toFixed(2);
+           console.log(discountPrice);
+           discount.innerHTML='Rs.'+discountPrice;
+        }
+    </script>
+</body>
+
+</html> 

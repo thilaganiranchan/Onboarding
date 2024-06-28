@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding Wizard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-sm container-md container-lg container-xl container-xxl" >
+        <div class="container pt-4 mt-5">
+            <div class="row">
+
+              <div class="col">
+                <h1> Lets add a type, Category and Sub-category</h1> <br><br>
+                <label >Add a product type</label><br>
+                <input type="text" class="form-control" id="mytext" placeholder="eg-books" required>
+                <span  class=" text-danger" id="inputText" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom" ></span>
+                <br><br>
+                <label >Add a Category(optional)</label><br>
+                <input type="text" class="form-control"  placeholder="eg- Acedamic books"><br><br>
+                <label >Add a sub-category(optional)</label><br>
+                <input type="text" class="form-control"  placeholder="eg-medical books"><br><br>
+
+                <div class="d-grid gap-2 d-md-block ">
+                    <a href="index.html"><button class="btn btn-primary text-white" type="button">Back</button></a>
+                    <a href="page3.html"> <button class="btn btn-primary text-white" id="nextButton" onclick="myfunction()" type="button">Next</button></a>                   
+                  </div>
+              </div>
+
+
+              <div class="col " style="padding: 5% 0% 5% 20%;">
+                <div class="container" style="background-color: aquamarine; padding-top: 5%;padding-left: 20%;">
+                <button class="btn btn-primary "  >Product type</button><br>
+                <span style='font-size:80px; margin-left: 7%;'>&#8595;</span><br>
+                <button class="btn btn-warning " style="padding-left: 7%; padding-right: 7%;" >Category</button><br>
+                <span style='font-size:80px;margin-left: 7%;' >&#8595;</span>
+             
+              
+              <div class="d-flex align-items-start">
+                <button class="btn btn-warning " style="margin-top: 7.1%;" > Sub-Category</button>
+                <p style="border: none; font-size: 68px;  padding: 0 ; margin: 0;">&#8594;</p>
+                    
+               
+                <button class="btn btn-secondary" style="margin-top: 7.1%;padding-left: 7%; padding-right: 7%;" >Product </button>
+              </div> 
+             
+            </div>
+          </div>
+            
+          </div>
+    </div>
+    <script>
+      
+      var mytext=document.getElementById(mytext);
+      var inputText=document.getElementById(inputText);
+      var isValid = true;
+      function myfunction(){
+        if (mytext.value.trim() === '') {
+                inputText.textContent="This field is required";
+                isValid = false;
+            } else {
+              inputText.textContent=" ";
+            }
+      }
+      
+       
+      
+    </script>
+</body>
+</html>

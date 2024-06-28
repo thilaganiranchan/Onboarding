@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onboarding Wizard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-sm container-md container-lg container-xl container-xxl">
+        <h1 style="padding-bottom: 2%;"> Apply a Theme</h1>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+              <div class="card">
+                <img src="img1.jpeg"class="card-img-top theme" alt="...">
+                <p class="add " id="btn1" onclick="update1()">Apply</p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <img src="img2.jpeg" class="card-img-top theme" alt="...">          
+                <p class="add" id="btn2" onclick="update2()">Apply</p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="card">
+                <img src="img3.jpg" class="card-img-top theme" alt="...">                 
+                <p class="add " id="btn3" onclick="update3()" >Apply</p>
+              </div>
+
+            </div>
+            <a href="page2.html"> <button type="button" class="btn btn-primary fs-3  next" >Next</button></a>
+          </div>
+
+    </div>
+    <script>
+
+        // var button=document.querySelectorAll('.add');
+        // function update()
+        // {
+        //   button.forEach(function(btn){
+        //     btn.classList.remove('active');
+        //     btn.innerHtml='Apply';
+        //   })
+        //   button.classList.add('active');
+        //   button.innerHtml='\u2713';
+        // }
+
+
+
+        var btn1=document.getElementById("btn1");
+        var btn2=document.getElementById("btn2");
+        var btn3=document.getElementById("btn3");      
+
+
+        function update1(){
+                       
+            btn1.textContent='\u2713';
+            btn1.classList.add('active');
+            btn2.textContent="Apply"
+            btn2.classList.remove('active');
+            btn3.textContent="Apply"
+            btn3.classList.remove('active');
+        }
+
+        function update2(){
+            btn2.classList.add('active');
+            btn2.textContent= '\u2713';
+            btn1.textContent="Apply"
+            btn3.textContent="Apply"
+            btn1.classList.remove('active');
+            btn3.classList.remove('active');
+        }
+
+        function update3(){
+            btn3.classList.add('active');
+            btn3.textContent='\u2713'
+            btn2.textContent="Apply"
+            btn1.textContent="Apply"
+            btn1.classList.remove('active');
+            btn2.classList.remove('active');
+        }
+        
+    </script> 
+</body>
+ 
+</html>
